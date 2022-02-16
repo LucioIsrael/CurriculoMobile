@@ -1,5 +1,7 @@
 package br.com.treino.meucurriculo;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -32,16 +34,27 @@ public class MainActivity extends AppCompatActivity {
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                enviarEmail();
             }
         });
+        //binding.appBarMain.fab2.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            //public void onClick(View view) {
+            //    enviarGitHub();
+          //  }
+        //});
+        //binding.appBarMain.fab3.setOnClickListener(new View.OnClickListener() {
+           // @Override
+            //public void onClick(View view) {
+          //      enviarLinkedin();
+         //   }
+       // });
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_tools, R.id.nav_sobre, R.id.nav_contatos)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -49,12 +62,32 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+    public void enviarEmail(){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(intent.EXTRA_EMAIL, new String[]{"lucioisraelti@gmail.com", "lucioinvestidor2021@gmail.com"});
+        intent.putExtra(intent.EXTRA_SUBJECT, "Contato pelo app");
+        intent.putExtra(intent.EXTRA_TEXT, "Olá Lúcio");
+
+        //mime types
+        intent.setType("message/rfc822");
+
+        startActivity(Intent.createChooser(intent, "Escolha um aplicativo de Email"));
+
     }
+
+    //public void enviarLinkedin(){
+        //String linkedin = "https://www.linkedin.com/in/lucioisrael/";
+        //Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(linkedin));
+        //startActivity(intent);
+    //}
+
+    //public void enviarGitHub(){
+        //String github = "https://github.com/LucioIsrael";
+        //Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(github));
+        //startActivity(intent);
+    //}
+
+
 
     @Override
     public boolean onSupportNavigateUp() {
