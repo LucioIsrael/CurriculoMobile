@@ -22,24 +22,26 @@
     <TextView
         android:id="@+id/textView14"
         android:layout_width="381dp"
-        android:layout_height="201dp"
+        android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:lineSpacingExtra="8sp"
         android:text="Sou um desenvolvedor Android que tem como objetivo trabalhar com boas equipes e aplicar conhecimentos obtidos diariamente. Sou estudante da Universidade Projeção em Taguatinga e tenho como meta expandir meus conhecimentos em mobile. Acredito com convicção que o trabalho em equipe é sempre o mais importante e sempre estarei aberto para aprender e conquistar novos desafios no mundo profissional. "
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintVertical_bias="0.078" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="76dp"
         android:scaleType="centerCrop"
         android:src="@drawable/java"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
